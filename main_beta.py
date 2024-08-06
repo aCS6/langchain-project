@@ -4,8 +4,11 @@ from langchain.prompts import (
     ChatPromptTemplate,
 )
 from langchain_openai import AzureChatOpenAI
-from langchain.memory import ConversationBufferMemory, FileChatMessageHistory
-from langchain.chains.conversation.base import ConversationChain
+from langchain.memory import ConversationBufferMemory
+from langchain_community.chat_message_histories import FileChatMessageHistory
+
+# Has depreciation warning
+from langchain.chains.llm import LLMChain
 
 from dotenv import load_dotenv
 import os
@@ -36,16 +39,15 @@ prompt = ChatPromptTemplate(
     ],
 )
 
-chain = ConversationChain(
+chain = LLMChain(
     llm=chat,
     prompt=prompt,
-    memory=memory,
-    # verbose=True
+    memory=memory
 )
 
 while True:
     content = input(">> ")
 
-    result = chain({"content": content})
+    result = chain.invoke({"content" : content})
 
     print(result["text"])
