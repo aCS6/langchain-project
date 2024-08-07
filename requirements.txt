@@ -46,6 +46,7 @@ langchain-community==0.2.11
 langchain-core==0.2.28
 langchain-openai==0.1.20
 langchain-text-splitters==0.2.2
+langchainhub==0.1.20
 langsmith==0.1.96
 markdown-it-py==3.0.0
 marshmallow==3.21.3
@@ -101,6 +102,7 @@ tokenizers==0.19.1
 tomli==2.0.1
 tqdm==4.66.5
 typer==0.12.3
+types-requests==2.32.0.20240712
 typing-inspect==0.9.0
 typing_extensions==4.12.2
 urllib3==2.2.2
